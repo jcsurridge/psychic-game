@@ -12,11 +12,11 @@
 
     <div>
         <h2 id="title">Guess what letter I'm thinking of!</h2>
-        <p id="Wins"></p>
-        <p id="Losses"></p>
-        <p id="Guesses"></p>
-        <p id="Your Guess"></p>
-        <p id="All Guesses"></p>
+        <p id="Wins">Wins: 0</p>
+        <p id="Losses">losses: 0</p>
+        <p id="Guesses">Guesses Left: </p>
+        <p id="Your Guess">Your Guess: </p>
+        <p id="All Guesses">All Guesses Made: </p>
     </div>
 
     <script type="text/javascript">
@@ -34,42 +34,32 @@
 
         // user input for key push
 
-        document.onkeyup = function (event) {
+        document.onkeypress = function (event) {
             var yourGuess = event.key;
 
             // this is logic to determine if the user won or lost
-            guessesMade.push(yourGuess);
-            
+
             if (yourGuess === computerGuess) {
-                guessesMade=[];
-                //alert("You Win!");
+                alert("You Win!");
                  wins++;
                  guesses = 10;
-                 
-                
             }
             else {
                 guesses--;
             }
 
             if(guesses === 0) {
-                guessesMade=[];
-               // alert("You Lose!");
+                alert("You Lose!");
                 losses++;
                 guesses = 10;
-               
-                
             }
-
-            
-            console.log(guessesMade);
 
 
             document.getElementById("Wins").textContent = "Wins: " + wins;
             document.getElementById("Losses").textContent = "Losses: " + losses;
             document.getElementById("Guesses").textContent = "Guesses Left: " + guesses;
             document.getElementById("Your Guess").textContent = "Your Guess: " + yourGuess;
-            document.getElementById("All Guesses").textContent = "All Guesses Made: " +  guessesMade;
+           // document.getElementById("All Guesses").textContent = "All Guesses Made: " + guessesMade.push(String.fromyourGuess(yourGuess));
             // console.log(yourGuess);
 
         };
